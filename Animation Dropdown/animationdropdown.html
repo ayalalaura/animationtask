@@ -1,0 +1,141 @@
+<!--To-do: audio, add header, add 2 more dropdowns, adjust container size, reverse animation so it's right to left-->
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Freckle+Face" rel="stylesheet">
+<style>
+body {
+	font-family: 'Freckle Face', cursive;
+	background-image: url("http://www.appstate.edu/~royekjd/old_bootstrap_website/boot_strap/bootstrap-3.3.5-dist/images/bikini-bottom-banner.jpg");
+	background-size: cover;
+}
+header {
+	text-align: center;
+	font-size: 50px;
+	margin-bottom: 0px;
+	color: rgb(255,69,0);
+}
+h3 {
+	margin-bottom: 0px;
+}
+#container {
+	width: 1200px;
+	height: 1200px;
+	position: relative;
+	background-color: rgba(255,255,255,.4)
+	z-index:-5
+	padding: 5px;
+	margin-top: 200px;
+}
+#animation {
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	background-image: url("spongebob.png");
+	background-size: cover;
+}
+.navbar {
+	text-align: center;
+	margin-top: 0px;
+	font-size: 30px;
+}
+.characters {
+	background-color: blue;
+	color: yellow;
+	font-size: 40px;
+	border: 2px;
+	position: relative;
+	display: inline-block;
+	padding: 5px;
+}
+.characters2 {
+	background-color: rgb(127,255,0);
+	color: rgb(255,105,180);
+	font-size: 40px;
+	border: 2px;
+	position: relative;
+	display: inline-block;
+	padding: 5px;
+}
+.spongebob {
+	display: none;
+	position: absolute;
+	width: 100px;
+	text-align: center;
+}
+.patrick {
+	display: none;
+	position: absolute;
+	width: 100px;
+	text-align: center;
+}
+.characters:hover	.spongebob{
+	display: block;
+}
+.characters2:hover	.patrick{
+	display: block;
+}
+p {
+	font-size: 25px;
+	background-color: rgba(0,0,255,.4);
+}
+button {
+	float: right;
+}
+</style>
+</head>
+
+
+<body>
+<header>
+	<h3>Welcome to Bikini Bottom!</h3>
+</header>	
+<div class="navbar">Meet: 
+
+	<div class="characters">
+		<span>Spongebob</span>
+		<div class="spongebob">
+			<p>
+			Patty<br>
+			Gary<br>
+			Porous<br>
+			</p>
+		</div>
+	</div>
+
+	<div class="characters2">
+		<span>Patrick Star</span>
+		<div class="patrick">
+			<p>
+			Starfish<br>
+			Wombo<br>
+			Leedle<br>
+			</p>
+		</div>
+	</div>		
+</div>
+
+<p><button onclick="Move()">Click Me</button></p>
+<div id="container">
+	<div id="animation">
+	</div>
+</div>
+<script>
+function Move() {
+	var elem = document.getElementById("animation");
+	var pos = 0;
+	var id = setInterval(frame, 4);
+	function frame() {
+		if (pos == 1200) {
+			clearInterval(id);
+		} else {
+			pos++;
+			elem.style.left = pos + 'px';
+			elem.style.right = pos + 'px';
+		}
+	}
+}
+</script>
+</body>
+
+</html>
